@@ -36,6 +36,8 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.wearable.DataMap;
 import com.google.android.gms.wearable.Wearable;
 
+import java.util.Date;
+
 /**
  * The watch-side config activity for {@link LinesFace}, which allows for setting the
  * background color.
@@ -146,6 +148,7 @@ public class NatureGradientsWatchFaceWearableConfigActivity extends Activity imp
 
     private void updateConfigDataItem(final int colorID) {
         DataMap configKeysToOverwrite = new DataMap();
+        configKeysToOverwrite.putLong(NatureGradientsWatchFaceUtil.KEY_TIMESTAMP, new Date().getTime());
         configKeysToOverwrite.putInt(NatureGradientsWatchFaceUtil.KEY_BACKGROUND_COLOR,
                 colorID);
         NatureGradientsWatchFaceUtil.overwriteKeysInConfigDataMap(mGoogleApiClient, configKeysToOverwrite);

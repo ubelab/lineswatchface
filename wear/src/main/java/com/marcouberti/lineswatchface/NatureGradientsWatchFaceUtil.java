@@ -32,6 +32,8 @@ import com.google.android.gms.wearable.Wearable;
 public final class NatureGradientsWatchFaceUtil {
     private static final String TAG = "FaceUtil";
 
+    public static final String KEY_TIMESTAMP = "KEY_TIMESTAMP";
+
     /**
      * The {@link DataMap} key for {@link LinesFace} background color name.
      * The color name must be a {@link String} recognized by {@link Color#parseColor}.

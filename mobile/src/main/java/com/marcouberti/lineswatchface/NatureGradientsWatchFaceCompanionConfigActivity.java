@@ -34,6 +34,8 @@ import com.google.android.gms.wearable.DataMap;
 import com.google.android.gms.wearable.DataMapItem;
 import com.google.android.gms.wearable.Wearable;
 
+import java.util.Date;
+
 /**
  * The phone-side config activity for {@code DigitalWatchFaceService}. Like the watch-side config
  * activity ({@code DigitalWatchFaceWearableConfigActivity}), allows for setting the background
@@ -223,6 +225,7 @@ public class NatureGradientsWatchFaceCompanionConfigActivity extends Activity
     private void sendConfigUpdateMessage(String configKey, int color) {
         if (mPeerId != null) {
             DataMap config = new DataMap();
+            config.putLong(NatureGradientsWatchFaceUtil.KEY_TIMESTAMP, new Date().getTime());
             config.putInt(configKey, color);
             byte[] rawData = config.toByteArray();
             Wearable.MessageApi.sendMessage(mGoogleApiClient, mPeerId, NatureGradientsWatchFaceUtil.PATH_WITH_FEATURE, rawData);
