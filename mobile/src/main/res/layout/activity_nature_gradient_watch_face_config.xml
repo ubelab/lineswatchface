@@ -86,6 +86,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+        <!--
         <Button
             android:id="@+id/seeOtherApps"
             android:padding="15dp"
@@ -100,6 +101,7 @@
             android:layout_height="wrap_content"
             android:text="@string/see_other_apps"
             android:onClick="seeOtherAppsClick"/>
+            -->
         <Button
             android:id="@+id/rateButton"
             android:padding="15dp"

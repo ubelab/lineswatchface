@@ -465,13 +465,15 @@ public class LinesFace extends CanvasWatchFaceService {
                 if (!config.containsKey(configKey)) {
                     continue;
                 }
-                int color = config.getInt(configKey);
-                if (Log.isLoggable(TAG, Log.DEBUG)) {
-                    Log.d(TAG, "Found watch face config key: " + configKey + " -> "
-                            + color);
-                }
-                if (updateUiForKey(configKey, color)) {
-                    uiUpdated = true;
+                if(configKey.equalsIgnoreCase(NatureGradientsWatchFaceUtil.KEY_BACKGROUND_COLOR)) {
+                    int color = config.getInt(configKey);
+                    if (Log.isLoggable(TAG, Log.DEBUG)) {
+                        Log.d(TAG, "Found watch face config key: " + configKey + " -> "
+                                + color);
+                    }
+                    if (updateUiForKey(configKey, color)) {
+                        uiUpdated = true;
+                    }
                 }
             }
             if (uiUpdated) {
